@@ -1,14 +1,16 @@
-
-const removeAds = () => {
+const observer = new MutationObserver(() => {
     
-    document.querySelectorAll('ytd-promoted-sparkles-web-renderer, ytd-display-ad-renderer').forEach((ad) => ad.remove());
-
-    document.querySelectorAll('#masthead-ad, .ytd-video-masthead-ad-v3-renderer').forEach((ad) => ad.remove());
-  };
+    document.querySelectorAll('.ytp-ad-overlay-container, .ytp-ad-image-overlay').forEach(ad => ad.remove());
+    
+    
+    const skipButton = document.querySelector('.ytp-ad-skip-button');
+    if (skipButton) {
+      skipButton.click();
+    }
   
+    
+    document.querySelectorAll('.ytp-ad-module').forEach(ad => ad.remove());
+  });
   
-  const observer = new MutationObserver(() => removeAds());
   observer.observe(document.body, { childList: true, subtree: true });
-  
-  removeAds();
   

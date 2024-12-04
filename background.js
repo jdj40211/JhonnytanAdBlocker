@@ -1,15 +1,15 @@
 chrome.declarativeNetRequest.updateDynamicRules({
     addRules: [
       {
-        id: 1,
+        id: 2,
         priority: 1,
         action: { type: "block" },
         condition: {
-          urlFilter: "*://*/*ads*",
-          resourceTypes: ["script", "image", "stylesheet"]
+          urlFilter: "*://*.googlevideo.com/*&adformat=*",
+          resourceTypes: ["xmlhttprequest", "media"]
         }
       }
     ],
-    removeRuleIds: [1] 
+    removeRuleIds: [2] 
   });
   
