@@ -1,22 +1,25 @@
 {
     "manifest_version": 3,
-    "name": "Jhonnytan Ad Blocker",
-    "version": "1.0",
-    "description": "Blocks ads on web pages.",
+    "name": "Jhonnytan",
+    "version": "1.1",
+    "description": "Blocks ads on YouTube ",
     "permissions": [
       "webRequest",
       "webRequestBlocking",
-      "declarativeNetRequest"
+      "declarativeNetRequest",
+      "tabs"
     ],
     "host_permissions": [
-      "*://*/*"
+      "*://*.youtube.com/*",
+      "*://*.googlevideo.com/*",
+      "*://*.doubleclick.net/*"
     ],
     "background": {
       "service_worker": "background.js"
     },
     "content_scripts": [
       {
-        "matches": ["<all_urls>"],
+        "matches": ["*://*.youtube.com/*"],
         "js": ["content.js"]
       }
     ],
